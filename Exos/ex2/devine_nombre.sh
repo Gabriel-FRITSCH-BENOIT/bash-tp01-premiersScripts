@@ -21,25 +21,32 @@ echo "deuxieme parametre : $2"
 # TODO: Valider que les paramètres sont des nombres
 
 if [[ "$1" =~ ^-?[0-9]+$ ]]; then
-    echo "c'est un nombre entier"
+
 else
-    echo "Ce n'est pas un nombre"
+    exit 1
 fi
 
 if [[ "$2" =~ ^-?[0-9]+$ ]]; then
-    echo "c'est un nombre entier"
+
 else
-    echo "Ce n'est pas un nombre"
+
+    exit 1
 fi
 
 # TODO: Valider que min < max
+min=$1
+max=$2
 
+if [[ $min -gt $max ]]; then
+    echo "Erreur : la valeur min doit être inférieure à la valeur max"
+    exit 1
+fi
 
 # TODO: Générer un nombre aléatoire entre min et max
-
+nombre=$(( $RANDOM % (max - min + 1) + min ))
 
 # TODO: Initialiser le nombre d'essais (5 par défaut, 3 en mode difficile)
-
+echo "Jeu : Devinez le nombre entre $min et $max <br>"
 
 # TODO: Boucle de jeu avec 5 essais maximum
 
