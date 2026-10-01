@@ -31,7 +31,8 @@ Date=$(date "+%Y%m%d")
 COMPTEUR=0
 
 # TODO: Boucler sur tous les fichiers .txt du dossier
-for FICHIER in chemin/*.txt; do
+for FICHIER in "$1"/*.txt; do
+	NOM=$(basename "$FICHIER" .txt)
 
 done
 
