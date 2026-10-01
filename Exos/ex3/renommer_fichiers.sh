@@ -12,19 +12,28 @@
 ################################################################################
 
 # TODO: Vérifier qu'un dossier est fourni en paramètre
-Bouh !!
-
+if [ $# -lt 1 ]; then
+	echo "c'est pas bon"
+	exit 1
+fi
 # TODO: Vérifier que le dossier existe
-
+if [ -d "$1" ]; then
+	echo "le dossier existe"
+else
+	echo "le dossier existe pas"
+	exit 1
+fi
 
 # TODO: Récupérer la date du jour au format AAAAMMJJ
-
+Date=$(date "+%Y%m%d")
 
 # TODO: Initialiser les compteurs
-
+COMPTEUR=0
 
 # TODO: Boucler sur tous les fichiers .txt du dossier
+for FICHIER in chemin/*.txt; do
 
+done
 
 # TODO: Pour chaque fichier :
 #       - Extraire le nom sans extension
