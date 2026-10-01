@@ -41,7 +41,12 @@ Votre réponse : Grâce à la valeur de i dans la boucle for. Mais on ne peut d�
 
 Votre réponse :
 ```
-[Expliquez la gestion des paramètres]
+if [ $# -lt 2 ]; then
+    echo "usage: $0 param1 param2"
+    exit 1
+fi
+
+On effectue une condition qui vérifie la présence des deux paramètres.
 ```
 
 ### Question 2 : Validation
@@ -49,7 +54,12 @@ Votre réponse :
 
 Votre réponse :
 ```
-[Décrivez votre validation]
+if [[ $min -ge $max ]]; then
+    echo "Erreur : la valeur min doit être strictement inférieure à la valeur max"
+    exit 1
+fi
+
+On effectue une condition pour vérifier si le premier paramètre est strictement inférieur au second.
 ```
 
 ### Question 3 : Compteur
@@ -57,7 +67,26 @@ Votre réponse :
 
 Votre réponse :
 ```
-[Expliquez votre logique de compteur]
+while [ $i -lt $essai ]; do
+    echo "Nombre d'essai restants : $essai"
+    read nombrejoueur
+    if [[ $nombrejoueur -lt $nombre ]]; then
+	    echo "trop petit"
+        essai=$((essai - 1))
+    elif [[ $nombrejoueur -gt $nombre ]]; then
+	    echo "trop grand"
+        essai=$((essai - 1))
+    elif [[ $nombrejoueur -eq $nombre ]]; then
+        echo " Bravo vous avez trouve !!!"
+        break
+    fi
+done
+
+if [[ $essai -eq 0 ]]; then
+    echo "Dommage, vous avez perdu ! Le nombre était : $nombre"
+fi
+
+On effectue des conditions pour retirer 1 à chaque mauvaise réponse, puis dès que le paramètre essai est égal à zéro, on effectue un break qui arrête le programme.
 ```
 
 ### Question 4 : Comparaisons
@@ -65,7 +94,10 @@ Votre réponse :
 
 Votre réponse :
 ```
-[Donnez des exemples de syntaxe]
+if [ $# -lt 2 ]; then
+    echo "usage: $0 param1 param2"
+    exit 1
+fi
 ```
 
 ---

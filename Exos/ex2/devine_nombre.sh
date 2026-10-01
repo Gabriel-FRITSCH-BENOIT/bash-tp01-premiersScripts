@@ -17,6 +17,7 @@ fi
 
 min=$1
 max=$2
+niveau=$3
 
 
 echo "premier parametre : $1"
